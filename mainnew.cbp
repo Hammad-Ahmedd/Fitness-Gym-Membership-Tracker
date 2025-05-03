@@ -37,7 +37,9 @@
 			<Add library="kernel32" />
 			<Add library="comctl32" />
 		</Linker>
-		<Unit filename="main.cpp" />
+		<Unit filename="main.c">
+			<Option compilerVar="CPP" />
+		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
