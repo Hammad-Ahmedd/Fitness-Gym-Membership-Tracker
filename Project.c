@@ -2,8 +2,8 @@
 
 int main(){
     printf("vs code new");
-    for(i=10){
-        printf("Enter Your Name")
+    for(int i = 1; i<= 10;i++){
+        printf("Enter Your Name");
     }
     return 0;
 }
