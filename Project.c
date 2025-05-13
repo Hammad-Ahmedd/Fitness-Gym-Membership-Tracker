@@ -35,3 +35,67 @@ while(1){
 }
     return 0;
 }
+
+struct Member {
+    int id;
+    char name[50];
+    int age;
+    float weight;
+    float fee;
+};
+
+void addMember() {
+    struct Member m;
+    FILE *fp = fopen("members.txt", "a");
+
+    if (fp == NULL) {
+        printf("Error: Cannot open members.txt for writing\n");
+        return;
+    }
+
+    printf("Enter Member ID: ");
+    scanf("%d", &m.id);
+
+    if (m.id <=0) {
+        printf ("Error: Invalid ID.Must be positive\n");
+        fclose(fp);
+        return;
+    }
+
+    if(memberExists(m.id)) {
+        printf("Error: Member ID already exists\n");
+        fclose(fp);
+        return;
+    }
+
+    printf("Enter Name; ");
+    safeInput(m.name,50);
+    printd("Enter Age: ");
+    scanf("%d", &m.age);
+    if (m.age <=0) {
+        printf("Error: Invalid age. Must be positive\n");
+        fclose(fp);
+        return;
+    }
+
+    printf("Enter Weight (kg): ");
+    scanf("%f", &m.weight);
+    if (m.weight <=0) {
+        printf("Error: Invalid weight . Must be positive\n");
+        fclose(fp);
+        return;
+    }
+
+    printf("Enter Fee Paid: ");
+    scanf("%f", &m.fee);
+    if (m.fee <0) {
+        printf("Error: Invalid fee. Must be positive\n");
+        fclose(fp);
+        return;
+    }
+
+    fprintf(fp, "%d is %d %.2f\n" , m.id, m.name, m.age, m.weight, m.fee);
+    fflush(fp);// Ensurewrite is flushed
+    fclose(fp);
+    printf("Succes: Member added\n");
+}
