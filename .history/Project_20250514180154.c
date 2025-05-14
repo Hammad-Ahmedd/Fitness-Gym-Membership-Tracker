@@ -47,7 +47,7 @@ void addMember(){
     }
     struct Member m;
     printf("\n====Add Member====\n");
-    printf("Enter member Id: ");
+    peintf("Enter member Id: ");
     scanf("%d",&m.id);
     printf("ENter member Name: ");
     scanf("%s",m.name);

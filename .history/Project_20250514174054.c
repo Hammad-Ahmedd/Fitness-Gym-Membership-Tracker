@@ -39,33 +39,17 @@ fclose(fp);
 return 0;
 
 }
-void addMember(){
-    FILE *fp=fopen("member.txt","a");
-    if(fp=NULL){
-        printf("Error Opening File.\n");
-        return;
-    }
-    struct Member m;
-    printf("\n====Add Member====\n");
-    printf("Enter member Id: ");
-    scanf("%d",&m.id);
-    printf("ENter member Name: ");
-    scanf("%s",m.name);
-    fwrite(&m, sizeof(struct Member),1,fp);
-        fclose(fp);
-        printf("Member add successfully!\n");
-}
 void viewAllMember(){
-    printf("NOt yet implement\n");
+    printf("NOt yet implement");
 }
 void updateMemberInfo(){
-    printf("NOt yet implement\n");
+    printf("NOt yet implement");
 }
 void addDietPlan(){
-    printf("NOt yet implement\n");
+    printf("NOt yet implement");
 }
 void viewDietplan(){
-    printf("NOt yet implement\n");
+    printf("NOt yet implement");
 }
 
 
@@ -79,7 +63,7 @@ while(1){
     printf("04) Add Diet Plan\n");
     printf("05) View Diet Plan\n");
     printf("06) Exit\n");
-    printf("Enter Choice Between (1to6): ");
+    printf("Enter Choice Between (1to6)\n");
     scanf("%d",&choice);
     switch (choice)
     {

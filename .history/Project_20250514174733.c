@@ -40,20 +40,7 @@ return 0;
 
 }
 void addMember(){
-    FILE *fp=fopen("member.txt","a");
-    if(fp=NULL){
-        printf("Error Opening File.\n");
-        return;
-    }
-    struct Member m;
-    printf("\n====Add Member====\n");
-    printf("Enter member Id: ");
-    scanf("%d",&m.id);
-    printf("ENter member Name: ");
-    scanf("%s",m.name);
-    fwrite(&m, sizeof(struct Member),1,fp);
-        fclose(fp);
-        printf("Member add successfully!\n");
+    printf("NOt yet implement\n");
 }
 void viewAllMember(){
     printf("NOt yet implement\n");
