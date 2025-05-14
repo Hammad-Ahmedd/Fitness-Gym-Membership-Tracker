@@ -91,7 +91,7 @@ void deleteMember(){
         }
         fclose(fp);
         fclose(temp);
-        
+
         remove("members.txt");
         rename("temp.txt","members.txt");
         if (found)
@@ -131,8 +131,8 @@ while(1){
     case 3:updateMemberInfo();break;
     case 4:addDietPlan();break;
     case 5:viewDietplan();break;
-    case 7:deleteMember();break;
-    case 6:return 0;break;
+    case 6:deleteMember();break;
+    case 7:return 0;break;
     default: printf("Choice not found please select between (1to7)") ;break;
     }
 }
