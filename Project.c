@@ -56,8 +56,20 @@ void addMember(){
         printf("Member add successfully!\n");
 }
 void viewAllMember(){
-    printf("NOt yet implement\n");
+    FILE *fp =
+    fopen("members.txt","r");
+    if(fp == NULL){
+        printf("NO memberr founded .\n");
+        return;
+    }
+    struct Member m;
+    printf("\n---Member List---\n");
+     while(fread(&m,sizeof(struct Member),1,fp)){
+        printf("ID:%d , Name %s\n",m.id,m.name);
+     }
+      fclose(fp);
 }
+
 void updateMemberInfo(){
     printf("NOt yet implement\n");
 }
