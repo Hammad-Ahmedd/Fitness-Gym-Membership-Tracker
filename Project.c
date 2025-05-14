@@ -9,6 +9,7 @@ void updateMemberInfo();
 void addDietPlan();
 void viewDietplan();
 int memberExists(int id);
+void deleteMember();
 
 struct Member
 {
@@ -68,7 +69,37 @@ void viewAllMember(){
      }
       fclose(fp);
 }
+void deleteMember(){
+    int id;
+    printf("\n Enter member ID to delte:");
+    scanf("%d",&id);
 
+    FILE* fp = fopen("member.txt","r");
+
+    FILE*temp = fopen("temp.txt","w");
+
+    struct Member m;
+    int found = 0;
+
+    while (fread(&m,sizeof(struct Member),1,fp)){
+        if(m.id !=id){
+            fwrite(&m,sizeof(struct Member),1,temp);}
+            else{
+                found = 1;
+            }
+
+        }
+        fclose(fp);
+        fclose(temp);
+        
+        remove("members.txt");
+        rename("temp.txt","members.txt");
+        if (found)
+        printf("Member deleted.\n");
+        else
+        printf("Member nt found.\n");
+    }
+    
 void updateMemberInfo(){
     printf("NOt yet implementsss\n");
 }
@@ -89,7 +120,8 @@ while(1){
     printf("03) Update Member Information\n");
     printf("04) Add Diet Plan\n");
     printf("05) View Diet Plan\n");
-    printf("06) Exit\n");
+    printf("06) View Diet Plan\n");
+    printf("07) Exit\n");
     printf("Enter Choice Between (1to6): ");
     scanf("%d",&choice);
     switch (choice)
@@ -99,6 +131,7 @@ while(1){
     case 3:updateMemberInfo();break;
     case 4:addDietPlan();break;
     case 5:viewDietplan();break;
+    case 7:deleteMember();break;
     case 6:return 0;break;
     default: printf("Choice not found please select between (1to7)") ;break;
     }
