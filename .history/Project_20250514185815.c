@@ -41,7 +41,7 @@ return 0;
 }
 void addMember(){
     FILE *fp=fopen("member.txt","a");
-    if(fp==NULL){
+    if(fp=NULL){
         printf("Error Opening File.\n");
         return;
     }
@@ -56,9 +56,9 @@ void addMember(){
         printf("Member add successfully!\n");
 }
 void viewAllMember(){
-    FILE *fp =fopen("member.txt","r");
+    FILE *fp =fopen("members.txt","r");
     if(fp == NULL){
-        printf("NO member founded .\n");
+        printf("NO memberr founded .\n");
         return;
     }
     struct Member m;
