@@ -71,7 +71,7 @@ void viewAllMember(){
 }
 
 void updateMemberInfo(){
-    printf("NOt yet implement\n");
+    printf("NOt yet implementsss\n");
 }
 void addDietPlan(){
     printf("NOt yet implement\n");
