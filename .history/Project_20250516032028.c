@@ -105,7 +105,9 @@ void deleteMember(){
         printf("Member not founded.\n");
     }
     
-
+void updateMemberInfo(){
+    printf("NOt yet implementsss\n");
+}
 void addDietPlan(){
     FILE *fp=fopen("diet.txt","a");
     if (fp==NULL){
@@ -142,9 +144,6 @@ void addDietPlan(){
 }
 void viewDietplan(){
     printf("NOt yet implement\n");
-}
-void updateMemberInfo(){
-    printf("NOt yet implementsss\n");
 }
 
 

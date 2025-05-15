@@ -27,8 +27,8 @@ struct Diet
 };
 
 int memberExists(int id){
-    FILE *fp=fopen("members.txt","r");
-    if (fp==NULL)return 0;
+    FILE *fp=fopen("member.txt","r");
+    if (fp=NULL)return 0;
     struct Member m;
     while(fread (&m,sizeof(struct  Member),1 ,fp)){
         if(m.id==id){
@@ -50,11 +50,6 @@ void addMember(){
     printf("\n====Add Member====\n");
     printf("Enter member Id: ");
     scanf("%d",&m.id);
-    if(memberExists(m.id)){
-        printf("Member with Id %d already exists!\n",m.id);
-        fclose(fp);
-        return;
-    }
     printf("ENter member Name: ");
     scanf("%s",m.name);
     fwrite(&m, sizeof(struct Member),1,fp);
@@ -76,10 +71,10 @@ void viewAllMember(){
 }
 void deleteMember(){
     int id;
-    printf("\n Enter member ID to deleted:");
+    printf("\n Enter member ID to delte:");
     scanf("%d",&id);
 
-    FILE* fp = fopen("members.txt","r");
+    FILE* fp = fopen("member.txt","r");
 
     FILE*temp = fopen("temp.txt","w");
 
@@ -102,49 +97,17 @@ void deleteMember(){
         if (found)
         printf("Member deleted.\n");
         else
-        printf("Member not founded.\n");
+        printf("Member not found.\n");
     }
     
-
+void updateMemberInfo(){
+    printf("NOt yet implementsss\n");
+}
 void addDietPlan(){
-    FILE *fp=fopen("diet.txt","a");
-    if (fp==NULL){
-        printf("Error opeining in file\n");
-        return;
-    }
-    struct Diet d;
-    printf("=====Add diet Plan=====\n");
-    printf("Enter member Id: ");
-    scanf("%d",&d.memberId);
-    if(!memberExists(d.memberId)){
-        printf("Member with Id %d does not exists!\n",d.memberId);
-        fclose(fp);
-        return;
-    }
-    printf("Enter Date (YYY-MM-DD)\n");
-    scanf("%s",d.date);
-    getchar();
-    printf("Enter Breakfast details: ");
-    scanf("%[^\n]",d.Breakfast);
-    getchar();
-    printf("Enter Lunch details: ");
-    scanf("%[^\n]",d.Lunch);
-    getchar();
-    printf("Enter dinner details: ");
-    scanf("%[^\n]",d.Dinner);
-    getchar();
-    printf("Enter total Calories: ");
-    scanf("%[^\n]",d.calories);
-    getchar();
-    fwrite(&d, sizeof(struct Diet),1,fp);
-    fclose(fp);
-    printf("Diet plan added successfully!\n");
+    printf("NOt yet implement\n");
 }
 void viewDietplan(){
     printf("NOt yet implement\n");
-}
-void updateMemberInfo(){
-    printf("NOt yet implementsss\n");
 }
 
 
@@ -157,9 +120,9 @@ while(1){
     printf("03) Update Member Information\n");
     printf("04) Add Diet Plan\n");
     printf("05) View Diet Plan\n");
-    printf("06) Delete Member\n");
+    printf("06) View Diet Plan\n");
     printf("07) Exit\n");
-    printf("Enter Choice Between (1to7): ");
+    printf("Enter Choice Between (1to6): ");
     scanf("%d",&choice);
     switch (choice)
     {
