@@ -160,7 +160,40 @@ void viewDietplan(){
     fclose(fp);
 }
 void updateMemberInfo(){
-    printf("NOt yet implementsss\n");
+    int id;
+    printf("\n==== Update Memer Information====\n");
+    printf("Enter member Id to update: ");
+    scanf("%d",&id);
+
+    FILE*fp = fopen("members.txt","r");
+    FILE*temp = fopen("temp.txt","w");
+     if(fp == NULL || temp == NULL){
+        printf("Error Opening file.\n");
+        return;
+     }
+     struct Member m;
+     int found = 0;
+
+     while (fread(&m,sizeof(struct Member,),1,fp)){
+        if (m.id  == id){
+            found  = 1;
+            printf("Enter new name for Member ID %d:",id);
+             scanf("%s",m.name); // Update name .
+        }
+        fwrite(&m,sizeof(struct Member),1,temp);
+     }
+
+     fclose(fp);
+     fclose(temp);
+     remove("members.txt");
+      rename("temp.txt","members.txt");
+        
+      if(found){
+        printf("Member ifomation successfull!\n");
+
+      }
+      else{printf("Member with ID %d not founded.\n found.\n",id);
+    }
 }
 
 
