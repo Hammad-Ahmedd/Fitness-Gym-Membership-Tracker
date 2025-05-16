@@ -160,7 +160,7 @@ void viewDietplan(){
     int found = 0;
 
     printf("\n--- Diet Plans for Member ID: %d ---\n", id);
-    while (fread(&d, sizeof(struct Diet), 1, fp)) {
+    while (fread(%d, sizeof(struct Diet), 1, fp)) {
         if (d.memberId == id) {
             found = 1;
             printf("Date: %s\n", d.date);
