@@ -141,22 +141,41 @@ void addDietPlan(){
     printf("Diet plan added successfully!\n");
 }
 void viewDietplan(){
-    FILE*fp = fopen("diet.txt","r");
-    if(fp == NULL){
-        printf("No diets plans found.\n");
+    int id;
+    printf("\nEnter member ID to view diet plan: ");
+    scanf("%d", &id);
+
+    if (!memberExists(id)){
+        printf("Member with ID %d does not exist.\n", id);
         return;
     }
-    struct Diet d;
-    printf("\n--- Diet Plans ---\n");
-    while (fread(&d,sizeof(struct Diet), 1, fp)){
-        printf("Member ID: %d\n", d.memberId);
-        printf("Date: %s\n", d.date);
-        printf("Breakfast: %s\n", d.Breakfast);
-        printf("Lunch: %s\n", d.Lunch);
-        printf("Dinner: %s\n", d.Dinner);
-        printf("Calories: %s\n", d.calories);
-        printf("---------------------------");
+
+    FILE* fp = fopen("diet.txt", "r");
+    if (fp == NULL) {
+        printf("No diet plans found.\n");
+        return;
     }
+
+    struct Diet d;
+    int found = 0;
+
+    printf("\n--- Diet Plans for Member ID: %d ---\n", id);
+    while (fread(%d, sizeof(struct Diet), 1, fp)) {
+        if (d.memberId == id) {
+            found = 1;
+            printf("Date: %s\n", d.date);
+            printf("Breakfast: %s\n", d.Breakfast);
+            printf("Lunch: %s\n", d.Lunch);
+            printf("Dinner: %s\n", d.Dinner);
+            printf("Calories: %s\n", d.calories);
+            printf("---------------------------");
+        }
+    }
+
+    if (!found) {
+        printf("No diet plans found for Member ID: %d.\n", id);
+    }
+
     fclose(fp);
 }
 void updateMemberInfo(){
