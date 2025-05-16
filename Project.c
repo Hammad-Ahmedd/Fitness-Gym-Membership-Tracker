@@ -141,7 +141,23 @@ void addDietPlan(){
     printf("Diet plan added successfully!\n");
 }
 void viewDietplan(){
-    printf("NOt yet implement\n");
+    FILE*fp = fopen("diet.txt","r");
+    if(fp == NULL){
+        printf("No diets plans found.\n");
+        return;
+    }
+    struct Diet d;
+    printf("\n--- Diet Plans ---\n");
+    while (freed(&d,sizeof(struct Diet), 1, fp)){
+        printf("Member ID: %d\n", d.memberId);
+        printf("Date: %s\n", d.date);
+        printf("Breakfast: %s\n", d.Breakfast);
+        printf("Lunch: %s\n", d.Lunch);
+        printf("Dinner: %s\n", d.Dinner);
+        printf("Calories: %s\n", d.calories);
+        printf("---------------------------")
+    }
+    fclose(fp);
 }
 void updateMemberInfo(){
     printf("NOt yet implementsss\n");
