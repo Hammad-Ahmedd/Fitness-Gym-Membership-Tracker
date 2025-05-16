@@ -121,7 +121,7 @@ void addDietPlan(){
         fclose(fp);
         return;
     }
-    printf("Enter Date (YYY-MM-DD): ");
+    printf("Enter Date (YYY-MM-DD)\n");
     scanf("%s",d.date);
     getchar();
     printf("Enter Breakfast details: ");
@@ -174,7 +174,7 @@ void updateMemberInfo(){
      struct Member m;
      int found = 0;
 
-     while (fread(&m,sizeof(struct Member),1,fp)){
+     while (fread(&m,sizeof(struct Member,),1,fp)){
         if (m.id  == id){
             found  = 1;
             printf("Enter new name for Member ID %d:",id);

@@ -121,7 +121,7 @@ void addDietPlan(){
         fclose(fp);
         return;
     }
-    printf("Enter Date (YYY-MM-DD): ");
+    printf("Enter Date (YYY-MM-DD)\n");
     scanf("%s",d.date);
     getchar();
     printf("Enter Breakfast details: ");
